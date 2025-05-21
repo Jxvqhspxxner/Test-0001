@@ -1,0 +1,17 @@
+-- Script inside a Part
+local part = script.Parent
+
+-- Create a ClickDetector if it doesn't exist
+local clickDetector = part:FindFirstChild("ClickDetector")
+if not clickDetector then
+    clickDetector = Instance.new("ClickDetector", part)
+end
+
+-- Function to change the color
+local function onClick(player)
+    part.BrickColor = BrickColor.Random()
+    print(player.Name .. " clicked the part!")
+end
+
+-- Connect the function to the click
+clickDetector.MouseClick:Connect(onClick)
